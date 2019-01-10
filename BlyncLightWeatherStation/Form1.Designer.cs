@@ -47,6 +47,8 @@
 			this.lblHumidity = new System.Windows.Forms.Label();
 			this.percipitationValue = new System.Windows.Forms.Label();
 			this.lblLastUpdate = new System.Windows.Forms.Label();
+			this.feelsLikeValue = new System.Windows.Forms.Label();
+			this.lblFeelsLike = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.weatherIcon)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -169,7 +171,7 @@
 			// 
 			this.humidityValue.AutoSize = true;
 			this.humidityValue.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.humidityValue.Location = new System.Drawing.Point(406, 108);
+			this.humidityValue.Location = new System.Drawing.Point(406, 109);
 			this.humidityValue.Name = "humidityValue";
 			this.humidityValue.Size = new System.Drawing.Size(77, 18);
 			this.humidityValue.TabIndex = 12;
@@ -215,12 +217,33 @@
 			this.lblLastUpdate.TabIndex = 16;
 			this.lblLastUpdate.Text = "Last Update";
 			// 
+			// feelsLikeValue
+			// 
+			this.feelsLikeValue.AutoSize = true;
+			this.feelsLikeValue.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.feelsLikeValue.Location = new System.Drawing.Point(162, 155);
+			this.feelsLikeValue.Name = "feelsLikeValue";
+			this.feelsLikeValue.Size = new System.Drawing.Size(0, 13);
+			this.feelsLikeValue.TabIndex = 17;
+			// 
+			// lblFeelsLike
+			// 
+			this.lblFeelsLike.AutoSize = true;
+			this.lblFeelsLike.Font = new System.Drawing.Font("Roboto", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblFeelsLike.Location = new System.Drawing.Point(150, 139);
+			this.lblFeelsLike.Name = "lblFeelsLike";
+			this.lblFeelsLike.Size = new System.Drawing.Size(39, 10);
+			this.lblFeelsLike.TabIndex = 18;
+			this.lblFeelsLike.Text = "Feels Like";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.BackColor = System.Drawing.Color.Black;
 			this.ClientSize = new System.Drawing.Size(562, 263);
+			this.Controls.Add(this.lblFeelsLike);
+			this.Controls.Add(this.feelsLikeValue);
 			this.Controls.Add(this.lblLastUpdate);
 			this.Controls.Add(this.percipitationValue);
 			this.Controls.Add(this.lblHumidity);
@@ -270,6 +293,8 @@
 		private System.Windows.Forms.Label lblHumidity;
 		private System.Windows.Forms.Label percipitationValue;
 		private System.Windows.Forms.Label lblLastUpdate;
+		private System.Windows.Forms.Label feelsLikeValue;
+		private System.Windows.Forms.Label lblFeelsLike;
 	}
 }
 

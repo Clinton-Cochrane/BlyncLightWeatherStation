@@ -27,8 +27,8 @@ namespace BlyncLightWeatherStation.Services.Weather
 			{
 				CityName = data.City.Name,
 				Temperature = Convert.ToInt16(Math.Floor(Convert.ToDouble(data.Temperature.Value))),
-				Humidity = data.Humidity.Value,
-				WindSpeed = data.Wind.Speed.Value,
+				Humidity = Convert.ToInt16(Math.Floor(Convert.ToDouble(data.Humidity.Value))),
+				WindSpeed = Convert.ToInt16(Math.Floor(Convert.ToDouble(data.Wind.Speed.Value) * 2.237)),
 				WindDirection = data.Wind.Direction.Code,
 				CurrentCondition = data.Weather.Value,
 				CurrentConditionId = int.Parse(data.Weather.Number),

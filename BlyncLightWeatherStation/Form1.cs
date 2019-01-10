@@ -15,7 +15,7 @@ namespace BlyncLightWeatherStation
 	{
 		private static readonly Timer Timer = new Timer();
 		private Thread _thread;
-		private const int DelayTime = 60000 * 1;
+		private const int DelayTime = 60000 * 30;
 
 		public Form1() { InitializeComponent(); }
 
@@ -61,12 +61,11 @@ namespace BlyncLightWeatherStation
 			currentTempValue.Text = $"{currentWeather.Temperature}°";
 			percipitationValue.Text = currentWeather.Precipitation.Mode;
 			humidityValue.Text = $"{currentWeather.Humidity} %";
-			windValue.Text = $"{currentWeather.WindDirection} @ {currentWeather.WindSpeed}KPH ";
+			windValue.Text = $"{currentWeather.WindDirection} @ {currentWeather.WindSpeed} MPH ";
 			sunriseValue.Text = currentWeather.SunRise.TimeOfDay.ToString();
 			sunsetValue.Text = currentWeather.SunSet.TimeOfDay.ToString();
+			feelsLikeValue.Text = $"{currentWeather.FeelsLikeTemperature}°";
 			weatherIcon.LoadAsync($"http://openweathermap.org/img/w/{currentWeather.CurrentConditionsIconId}.png");
 		}
-
-
 	}
 }
