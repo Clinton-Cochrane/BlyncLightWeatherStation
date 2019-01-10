@@ -14,8 +14,8 @@ namespace BlyncLightWeatherStation
 	public partial class Form1 : Form
 	{
 		private static readonly Timer Timer = new Timer();
-		private Thread _thread;
-		private const int DelayTime = 60000 * 30;
+		private Thread _lightControlThread;
+		private const int DelayTime = 60000 * 1;
 
 		public Form1() { InitializeComponent(); }
 
@@ -29,12 +29,12 @@ namespace BlyncLightWeatherStation
 
 		private async void TimerEventProcessor(object sender, EventArgs e)
 		{
-			_thread?.Abort();
+			_lightControlThread?.Abort();
 			CurrentWeather currentWeather = await WeatherDataFetcher.GetWeatherAsync();
 			SetUi(currentWeather);
 			var colorController = new ColorController(currentWeather.Temperature, currentWeather.CurrentConditionId);
-			_thread = new Thread(new ThreadStart(colorController.SetColors)) { IsBackground = true };
-			_thread.Start();
+			_lightControlThread = new Thread(new ThreadStart(colorController.SetColors)) { IsBackground = true };
+			_lightControlThread.Start();
 		}
 
 		private void Form1_Resize(object sender, EventArgs e)
@@ -61,11 +61,12 @@ namespace BlyncLightWeatherStation
 			currentTempValue.Text = $"{currentWeather.Temperature}°";
 			percipitationValue.Text = currentWeather.Precipitation.Mode;
 			humidityValue.Text = $"{currentWeather.Humidity} %";
-			windValue.Text = $"{currentWeather.WindDirection} @ {currentWeather.WindSpeed} MPH ";
+			windValue.Text = $"{currentWeather.WindDirection} @ {currentWeather.WindSpeed}KPH ";
 			sunriseValue.Text = currentWeather.SunRise.TimeOfDay.ToString();
 			sunsetValue.Text = currentWeather.SunSet.TimeOfDay.ToString();
-			feelsLikeValue.Text = $"{currentWeather.FeelsLikeTemperature}°";
 			weatherIcon.LoadAsync($"http://openweathermap.org/img/w/{currentWeather.CurrentConditionsIconId}.png");
 		}
+
+
 	}
 }
