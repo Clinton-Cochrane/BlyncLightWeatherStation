@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WeatherLightBox2.Properties
+namespace BlyncLightWeatherStation.Properties
 {
 
 
