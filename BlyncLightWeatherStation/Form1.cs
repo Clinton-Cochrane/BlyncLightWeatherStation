@@ -61,7 +61,8 @@ namespace BlyncLightWeatherStation
 			currentTempValue.Text = $"{currentWeather.Temperature}°";
 			percipitationValue.Text = currentWeather.Precipitation.Mode;
 			humidityValue.Text = $"{currentWeather.Humidity} %";
-			windValue.Text = $"{currentWeather.WindDirection} @ {currentWeather.WindSpeed}KPH ";
+			windValue.Text = $"{currentWeather.WindDirection} @ {currentWeather.WindSpeed} MPH ";
+			feelsLikeValue.Text = $"{currentWeather.FeelsLikeTemperature}°";
 			sunriseValue.Text = currentWeather.SunRise.TimeOfDay.ToString();
 			sunsetValue.Text = currentWeather.SunSet.TimeOfDay.ToString();
 			weatherIcon.LoadAsync($"http://openweathermap.org/img/w/{currentWeather.CurrentConditionsIconId}.png");

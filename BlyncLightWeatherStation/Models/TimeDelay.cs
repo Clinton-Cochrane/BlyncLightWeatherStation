@@ -2,8 +2,9 @@
 {
 	public enum TimeDelay
 	{
-		TemperatureColor = 10000,
+		TemperatureColor = 30000,
 		Condition = 1500,
 		Warning = 250,
+		Off = Warning / 2,
 	}
 }

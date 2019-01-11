@@ -47,15 +47,16 @@ namespace BlyncLightWeatherStation.Models
 		private int CalculateWindChill()
 		{
 			int tempInFahrenheit = (9 / 5) * Temperature + 32;
-			double windChill = 35.74 +
-								(0.6215 * tempInFahrenheit) -
-								(35.75 * Math.Pow(WindSpeed, 0.16)) +
-								(0.4275 * tempInFahrenheit * Math.Pow(WindSpeed, 0.16));
+			double windChill =
+				35.74
+				+ (0.6215 * tempInFahrenheit)
+				- (35.75 * Math.Pow(WindSpeed, 0.16))
+				+ (0.4275 * tempInFahrenheit * Math.Pow(WindSpeed, 0.16));
 
 			windChill = (5 / 9) * (windChill - 32);
 			windChill = Convert.ToInt16(Math.Floor(windChill));
 
-			return(int) windChill;
+			return(int)windChill;
 		}
 
 		//the formula below is the Rothfusz regression. This is the first step there are ways to get more precision
@@ -72,20 +73,20 @@ namespace BlyncLightWeatherStation.Models
 			var humiditySquared = Math.Pow(humidity, 2);
 
 			var heatIndex =
-				(constant[1])                                 +
-				(constant[2]               * temperature)     +
-				(constant[3]               * humidity)        +
-				(constant[4] * temperature * humidity)        +
-				(constant[5]               * tempSquared)     +
-				(constant[6]               * humiditySquared) +
-				(constant[7] * tempSquared * humidity)        +
-				(constant[8] * temperature * humiditySquared) +
-				(constant[9] * tempSquared * humiditySquared);
+				(constant[1])
+				+ (constant[2]               * temperature)
+				+ (constant[3]               * humidity)
+				+ (constant[4] * temperature * humidity)
+				+ (constant[5]               * tempSquared)
+				+ (constant[6]               * humiditySquared)
+				+ (constant[7] * tempSquared * humidity)
+				+ (constant[8] * temperature * humiditySquared)
+				+ (constant[9] * tempSquared * humiditySquared);
 
 			heatIndex = (5 / 9) * (heatIndex - 32);
 			heatIndex = Convert.ToInt16(Math.Floor(heatIndex));
 
-			return(int) heatIndex;
+			return(int)heatIndex;
 		}
 	}
 }

@@ -40,7 +40,7 @@ namespace BlyncLightWeatherStation.Controllers
 
 			var conditionInstructions = new List<BlyncLightInstruction>
 			{
-				new BlyncLightInstruction(BlyncLightColor.Off, TimeDelay.Condition)
+				new BlyncLightInstruction(BlyncLightColor.Off, TimeDelay.Off)
 			};
 			if(lightThunderstorm.Contains(currentCondition))
 			{
@@ -88,7 +88,7 @@ namespace BlyncLightWeatherStation.Controllers
 				conditionInstructions.Add(new BlyncLightInstruction(BlyncLightColor.White, TimeDelay.Condition));
 				conditionInstructions.AddRange(getWarning(BlyncLightColor.Red));
 			}
-			conditionInstructions.Add(new BlyncLightInstruction(BlyncLightColor.Off, TimeDelay.Condition));
+			conditionInstructions.Add(new BlyncLightInstruction(BlyncLightColor.Off, TimeDelay.Off));
 			if(conditionInstructions.Count <= 2)
 			{
 				conditionInstructions.Clear();
@@ -102,7 +102,7 @@ namespace BlyncLightWeatherStation.Controllers
 			var warningList = new List<BlyncLightInstruction>();
 			for(var i = 0; i < 4; i++)
 			{
-				warningList.Add(new BlyncLightInstruction(BlyncLightColor.Off, TimeDelay.Warning));
+				warningList.Add(new BlyncLightInstruction(BlyncLightColor.Off, TimeDelay.Off));
 				warningList.Add(new BlyncLightInstruction(color, TimeDelay.Warning));
 			}
 
